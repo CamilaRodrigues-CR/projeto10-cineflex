@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
@@ -18,17 +19,20 @@ export default function HomePage() {
     },
         []);
 
+
     return (
         <PageContainer>
             Selecione o filme
 
             <ListContainer>
                 {movies.map(movie => (
-                <MovieContainer key={movie.id}>
-                    <img src={movie.posterURL} alt={`Poster do filme ${movie.title}`}/>
-                </MovieContainer>)
+                    <Link to={`/sessoes/${movie.id}`}>
+                        <MovieContainer key={movie.id}>
+                            <img src={movie.posterURL} alt={`Poster do filme ${movie.title}`} />
+                        </MovieContainer>
+                    </Link>
+                )
                 )}
-               
             </ListContainer>
 
         </PageContainer>

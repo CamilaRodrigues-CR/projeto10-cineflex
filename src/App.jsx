@@ -4,7 +4,7 @@ import SeatsPage from "./pages/SeatsPage/SeatsPage"
 import SessionsPage from "./pages/SessionsPage/SessionsPage"
 import SuccessPage from "./pages/SuccessPage/SuccessPage"
 import axios from 'axios'
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link} from "react-router-dom"
 
 axios.defaults.headers.common['Authorization'] = 'W2tn8sYmcsjCSywvELTCnP2g';
 
