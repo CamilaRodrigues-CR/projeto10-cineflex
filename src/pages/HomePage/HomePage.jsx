@@ -23,7 +23,11 @@ export default function HomePage() {
             Selecione o filme
 
             <ListContainer>
-                {movies.map(movie => <MovieContainer key={movie.id}>{movie.id}</MovieContainer>)}
+                {movies.map(movie => (
+                <MovieContainer key={movie.id}>
+                    <img src={movie.posterURL} alt={`Poster do filme ${movie.title}`}/>
+                </MovieContainer>)
+                )}
                
             </ListContainer>
 
