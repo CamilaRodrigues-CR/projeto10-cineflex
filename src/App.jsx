@@ -3,17 +3,31 @@ import HomePage from "./pages/HomePage/HomePage"
 import SeatsPage from "./pages/SeatsPage/SeatsPage"
 import SessionsPage from "./pages/SessionsPage/SessionsPage"
 import SuccessPage from "./pages/SuccessPage/SuccessPage"
+import axios from 'axios'
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+
+axios.defaults.headers.common['Authorization'] = 'W2tn8sYmcsjCSywvELTCnP2g';
+
 
 export default function App() {
     return (
-        <>
-           <NavContainer>CINEFLEX</NavContainer>
+        
+            <BrowserRouter>
+                <NavContainer>
+                    <Link to="/">
+                    CINEFLEX
+                    </Link>
+                </NavContainer>
 
-            <HomePage />
-            {/* <SeatsPage /> */}
-            {/* <SessionsPage /> */}
-            {/* <SuccessPage /> */}
-        </>
+                <Routes>
+                    <Route parth="/" element={<HomePage />} />
+                    <Route parth="/sessoes/:idFilme" element={<SessionsPage />} />
+                    <Route parth="/assentos/:idSessao" element={<SeatsPage />} />
+                    <Route parth="/sucesso" element={<SuccessPage />} />
+
+                </Routes>
+            </BrowserRouter>
+        
     )
 }
 
