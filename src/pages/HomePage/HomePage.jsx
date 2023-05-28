@@ -7,13 +7,13 @@ export default function HomePage() {
 
     useEffect(() => {
         const URL = 'https://mock-api.driven.com.br/api/v8/cineflex/movies';
-        const promise = axios.get('URL');
+        const promise = axios.get(URL);
         promise.then((res) => {
             setMovies(res.data)
             console.log(movies);
         })
-        promise.cath((err) => {
-            console.log(err.response.data)
+        promise.catch((err) => {
+            console.log(err.response.data.message)
         })
     },
         []);
@@ -23,13 +23,8 @@ export default function HomePage() {
             Selecione o filme
 
             <ListContainer>
+                {movies.map(movie => <MovieContainer key={movie.id}>{movie.id}</MovieContainer>)}
                
-                <MovieContainer>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster" />
-                </MovieContainer>
-
-
-                
             </ListContainer>
 
         </PageContainer>

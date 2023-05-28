@@ -20,10 +20,10 @@ export default function App() {
                 </NavContainer>
 
                 <Routes>
-                    <Route parth="/" element={<HomePage />} />
-                    <Route parth="/sessoes/:idFilme" element={<SessionsPage />} />
-                    <Route parth="/assentos/:idSessao" element={<SeatsPage />} />
-                    <Route parth="/sucesso" element={<SuccessPage />} />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/sessoes/:idFilme" element={<SessionsPage />} />
+                    <Route path="/assentos/:idSessao" element={<SeatsPage />} />
+                    <Route path="/sucesso" element={<SuccessPage />} />
 
                 </Routes>
             </BrowserRouter>
