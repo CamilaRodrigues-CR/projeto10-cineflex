@@ -5,7 +5,7 @@ import axios from "axios"
 
 export default function SeatsPage() {
     const [seat, setSeat] = useState ([]);
-    const {idSessao} = useParams
+    const {idSessao} = useParams()
 
     useEffect(() => {
         const URL = `https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSessao}/seats`;
@@ -25,11 +25,11 @@ export default function SeatsPage() {
             Selecione o(s) assento(s)
 
             <SeatsContainer>
-                <SeatItem>01</SeatItem>
-                <SeatItem>02</SeatItem>
-                <SeatItem>03</SeatItem>
-                <SeatItem>04</SeatItem>
-                <SeatItem>05</SeatItem>
+                {seat.seats?.map(assento => (
+                    <SeatItem key={assento.id}>{assento.name}</SeatItem>
+                )
+                )}
+             
             </SeatsContainer>
 
             <CaptionContainer>
