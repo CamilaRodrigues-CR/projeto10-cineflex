@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams , Link} from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import styled from "styled-components"
 import axios from "axios"
 
@@ -27,12 +27,12 @@ export default function SessionsPage() {
             Selecione o horário
             <div>
                 {movie.days?.map(session => (
-                    <SessionContainer key={session.id}>
+                    <SessionContainer key={session.id} data-test="movie-day">
                         {session.weekday} - {session.date}
                         <ButtonsContainer>
                             {session.showtimes?.map(time => (
                                 <Link to={`/assentos/${time.id}`}>
-                                    <button key={time.id}>{time.name}</button>
+                                    <button key={time.id} data-test="showtime" >{time.name}</button>
                                 </Link>
                             ))}
                         </ButtonsContainer>
@@ -42,13 +42,16 @@ export default function SessionsPage() {
 
             </div>
 
-            <FooterContainer>
+            <FooterContainer data-test="footer" >
+
                 <div>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster" />
+                    <img src={movie.posterURL} alt="poster" />
                 </div>
+
                 <div>
-                    <p>Tudo em todo lugar ao mesmo tempo</p>
+                    <p>{movie.title}</p>
                 </div>
+
             </FooterContainer>
 
         </PageContainer>

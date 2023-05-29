@@ -26,7 +26,7 @@ export default function SeatsPage() {
 
             <SeatsContainer>
                 {seat.seats?.map(assento => (
-                    <SeatItem key={assento.id}>{assento.name}</SeatItem>
+                    <SeatItem key={assento.id} data-test="seat">{assento.name}</SeatItem>
                 )
                 )}
              
@@ -59,11 +59,11 @@ export default function SeatsPage() {
 
             <FooterContainer>
                 <div>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster" />
+                    <img src={seat.posterUrl} alt="poster" />
                 </div>
                 <div>
-                    <p>Tudo em todo lugar ao mesmo tempo</p>
-                    <p>Sexta - 14h00</p>
+                    <p>{seat.title}</p>
+                    <p>{seat.weekday} - {seat.date}</p>
                 </div>
             </FooterContainer>
 
